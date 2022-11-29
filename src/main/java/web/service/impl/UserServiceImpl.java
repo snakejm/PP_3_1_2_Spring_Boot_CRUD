@@ -3,6 +3,7 @@ package web.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.transaction.annotation.Transactional;
 import web.entity.User;
 import web.repository.UserRepository;
 import web.service.UserService;
@@ -20,6 +21,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void addUser(User user) {
         userRepository.save(user);
     }
@@ -35,16 +37,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void udpateUser(User user) {
+    @Transactional
+    public void updateUser(User user) {
         userRepository.save(user);
     }
 
     @Override
+    @Transactional
     public void deleteAllUsers() {
         userRepository.deleteAll();
     }
 
     @Override
+    @Transactional
     public void deleteUserById(long id) {
         userRepository.deleteById(id);
     }

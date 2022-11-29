@@ -61,7 +61,7 @@ public class UsersController {
 
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("user") User user) {
-        userService.udpateUser(user);
+        userService.updateUser(user);
         return "redirect:/users";
     }
 }
